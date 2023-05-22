@@ -5,7 +5,7 @@ window.onload = function () {
       const summaryElement = document.getElementById("summary");
       const imagesElement = document.getElementById("images");
 
-      summaryElement.innerHTML = data.summary;
+      summaryElement.innerHTML = data.summary.split("\n").join("<br>");
 
       data.images.forEach((image, index) => {
         const img = document.createElement("img");
@@ -25,4 +25,17 @@ window.onload = function () {
       });
     })
     .catch((err) => console.error(err.message));
+
+  function formatDate(date) {
+    const options = {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    };
+    return date.toLocaleDateString("en-US", options);
+  }
+
+  const today = new Date();
+  document.getElementById("date").textContent = formatDate(today);
 };
