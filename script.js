@@ -2,6 +2,9 @@ window.onload = function () {
   fetch("http://localhost:8000/")
     .then((response) => response.json())
     .then((data) => {
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("news-container").style.display = "block";
+
       const summaryElement = document.getElementById("summary");
       const imagesElement = document.getElementById("images");
 
