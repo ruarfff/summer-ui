@@ -1,5 +1,5 @@
 window.onload = function () {
-  fetch("http://localhost:8000/")
+  fetch("https://summer-api.fly.dev/news/")
     .then((response) => response.json())
     .then((data) => {
       document.getElementById("loader").style.display = "none";
